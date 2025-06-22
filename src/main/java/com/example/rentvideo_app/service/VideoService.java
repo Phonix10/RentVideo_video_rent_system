@@ -36,7 +36,7 @@ public class VideoService {
     public Video updateVideo(Long id, Video videoDetails) {
 
         Video existingVideo = videoRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Video not found with id: " + id));
+                .orElseThrow(() -> new RuntimeException("Video not found id: " + id));
 
         existingVideo.setTitle(videoDetails.getTitle());
         existingVideo.setDirector(videoDetails.getDirector());
@@ -49,7 +49,7 @@ public class VideoService {
   
     public void deleteVideo(Long id) {
         if (!videoRepository.existsById(id)) {
-            throw new RuntimeException("Video not found with id: " + id);
+            throw new RuntimeException("Video not found id: " + id);
         }
         videoRepository.deleteById(id); 
     }
